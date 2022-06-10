@@ -23,6 +23,21 @@ const draggableList = document.getElementById("draggable-list")
 const check = document.getElementById("check")
 
 /*----------------------------- Event Listeners -----------------------------*/
+function addEventListener() {
+  const draggables = document.querySelectorAll('.draggable')
+  const dragListItems = document.querySelectorAll('.draggable-list li')
+
+  draggables.forEach(draggable => {
+    draggable.addEventListener('dragstart', dragStart)
+  })
+
+  dragListItems.forEach(item => {
+    item.addEventListener('dragover', dragOver)
+    item.addEventListener('drop', dragDrop)
+    item.addEventListener('dragenter', dragEnter)
+    item.addEventListener('dragleave', dragLeave)
+  })
+}
 
 /*-------------------------------- Functions --------------------------------*/
 createList()
@@ -50,4 +65,25 @@ function createList(){
 
     draggableList.appendChild(listItem)
   })
+  addEventListener()
+}
+
+function dragStart() {
+
+}
+
+function dragEnter() {
+  this.classList.add('over')
+}
+
+function dragOver() {
+  
+}
+
+function dragDrop() {
+  
+}
+
+function dragLeave() {
+  this.classList.remove('over')
 }
